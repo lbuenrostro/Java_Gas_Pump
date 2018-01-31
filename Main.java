@@ -1,6 +1,6 @@
 package com.company;
-
-import java.util.Scanner;
+import java.util.*;
+import java.io.*:
 
 public class Main {
 
@@ -16,7 +16,7 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        System.out.println("\nWELCOME to Lizeth B Gas Station!!\n");
+        System.out.println("\nWELCOME to Buenrostro Gas Station!!\n");
         System.out.println("What would you like today:\n--regular\n--mid-grade\n--premium\n");
         String GasType = reader.nextLine();
         System.out.println("[1]Pre Pay or [2]Pay After");
@@ -26,6 +26,7 @@ public class Main {
         if (PayType.equals(1)){
             System.out.println("How much would you like to get?");
             Double money = reader.nextDouble();
+            System.out.println("\n--Total--");
             Pay(PayType, GasType, money);
         }
         else if (PayType.equals(2)){

@@ -1,10 +1,12 @@
 package com.company;
+import javax.swing.plaf.synth.SynthTextAreaUI;
+import java.io.*;
 import java.util.*;
-import java.io.*:
+
 
 public class Main {
 
-    public static void Pay(Integer PayType, String GasType, Double Amount){
+    public static void Pay(Integer PayType, String GasType, Double Amount) throws IOException {
         if (PayType.equals(1)){
             GasPump paying = new GasPump(GasType);
             System.out.println(paying.prePay(GasType, Amount));
@@ -14,25 +16,31 @@ public class Main {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner reader = new Scanner(System.in);
-        System.out.println("\nWELCOME to Buenrostro Gas Station!!\n");
-        System.out.println("What would you like today:\n--regular\n--mid-grade\n--premium\n");
+        System.out.println("---WELCOME to Buenrostro Gas Station!!---");
+        System.out.println("\nWhat would you like today:\n--regular\n--mid_grade\n--premium");
         String GasType = reader.nextLine();
-        System.out.println("[1]Pre Pay or [2]Pay After");
+        System.out.println("\n[1]Pre Pay or [2]Pay After");
         Integer PayType = reader.nextInt();
 
-
-        if (PayType.equals(1)){
-            System.out.println("How much would you like to get?");
-            Double money = reader.nextDouble();
-            System.out.println("\n--Total--");
-            Pay(PayType, GasType, money);
-        }
-        else if (PayType.equals(2)){
-            System.out.println("How much would you like to get?");
-            Double money = reader.nextDouble();
-            Pay(PayType, GasType, money);
+        while(true) {
+            if (PayType.equals(1)) {
+                System.out.println("How much would you like to get?");
+                Double money = reader.nextDouble();
+                System.out.println("\n--Total--");
+                Pay(PayType, GasType, money);
+                System.exit(0);
+            } else if (PayType.equals(2)) {
+                System.out.println("How much would you like to get?");
+                Double gallons = reader.nextDouble();
+                System.out.println("\n--Total--");
+                Pay(PayType, GasType, gallons);
+                System.exit(0);
+            } else {
+                System.out.println("---Invalid---");
+                System.exit(0);
+            }
         }
     }
 }

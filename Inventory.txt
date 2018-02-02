@@ -1,4 +1,3 @@
-Type, Price, Gallons
-regular, 2.00, 5000
-mid-grade, 2.24, 5000
-premium, 3.00, 5000
+regular, 4952.0
+mid_grade, 338.0
+premium, 4877.0

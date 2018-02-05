@@ -1,5 +1,4 @@
 package com.company;
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.io.*;
 import java.util.*;
 
@@ -21,10 +20,10 @@ public class Main {
         System.out.println("---WELCOME to Buenrostro Gas Station!!---");
         System.out.println("\nWhat would you like today:\n--regular\n--mid_grade\n--premium");
         String GasType = reader.nextLine();
-        System.out.println("\n[1]Pre Pay or [2]Pay After");
+        System.out.println("\n[1]Pre Pay, [2]Pay After, [?] TOTAL SALES: ");
         Integer PayType = reader.nextInt();
 
-        while(true) {
+        while (true) {
             if (PayType.equals(1)) {
                 System.out.println("How much would you like to get?");
                 Double money = reader.nextDouble();
@@ -37,7 +36,10 @@ public class Main {
                 System.out.println("\n--Total--");
                 Pay(PayType, GasType, gallons);
                 System.exit(0);
-            } else {
+        } else if (PayType.equals(3)) {
+                System.out.println(GasPump.calculateTotalSales());
+                System.exit(0);
+        } else {
                 System.out.println("---Invalid---");
                 System.exit(0);
             }

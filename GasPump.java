@@ -102,5 +102,30 @@ public class GasPump {
         writer.write("\n" + premium);
         writer.close();
     }
+
+    public static String calculateTotalSales() throws IOException {
+        Scanner input;
+        File file = new File("/home/basecamp/IdeaProjects/Java_Gas_Pump/src/com/company/Inventory.txt");
+
+        input = new Scanner(file);
+        input.nextLine();
+
+        Double total = 0.0;
+
+        while (input.hasNextLine()) {
+            String sale = input.nextLine();
+
+            ArrayList saleList = new ArrayList<String>(Arrays.asList(sale.split(", ")));
+            double salePrice = Double.parseDouble(saleList.get(1).toString());
+            total += salePrice;
+
+        }
+        input.close();
+
+        total = Math.round(total * 100.0) / 100.0;
+        String message = "Total sales: $" + total;
+        return message;
+
+    }
 }
 
